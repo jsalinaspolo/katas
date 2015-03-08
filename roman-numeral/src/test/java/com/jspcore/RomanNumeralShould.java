@@ -10,5 +10,6 @@ public class RomanNumeralShould {
     @Test public void
     generate_roman_numerals_from_a_decimal_number() {
         assertThat(RomanNumeral.romanFrom(1), is("I"));
+        assertThat(RomanNumeral.romanFrom(2), is("II"));
     }
 }
