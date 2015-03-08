@@ -11,6 +11,7 @@
 
     <modules>
         <module>roman-numeral</module>
+        <module>fizz-buzz</module>
     </modules>
 
     <build>
