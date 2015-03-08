@@ -14,6 +14,8 @@ public class RomanNumeralShould {
         assertThat(RomanNumeral.romanFrom(3), is("III"));
         assertThat(RomanNumeral.romanFrom(5), is("V"));
         assertThat(RomanNumeral.romanFrom(6), is("VI"));
+        assertThat(RomanNumeral.romanFrom(8), is("VIII"));
+        assertThat(RomanNumeral.romanFrom(10), is("X"));
 
     }
 }
