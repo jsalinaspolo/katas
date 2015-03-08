@@ -8,7 +8,7 @@ import static org.hamcrest.core.Is.is;
 public class RomanNumeralShould {
 
     @Test public void
-    initial() {
-        assertThat(true, is(false));
+    generate_roman_numerals_from_a_decimal_number() {
+        assertThat(RomanNumeral.romanFrom(1), is("I"));
     }
 }
