@@ -12,6 +12,7 @@
     <modules>
         <module>roman-numeral</module>
         <module>fizz-buzz</module>
+        <module>mars-rover</module>
     </modules>
 
     <build>
