@@ -11,5 +11,7 @@ public class RomanNumeralShould {
     generate_roman_numerals_from_a_decimal_number() {
         assertThat(RomanNumeral.romanFrom(1), is("I"));
         assertThat(RomanNumeral.romanFrom(2), is("II"));
+        assertThat(RomanNumeral.romanFrom(3), is("III"));
+
     }
 }
