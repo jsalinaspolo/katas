@@ -81,4 +81,11 @@ public class RoverShould {
         assertThat(rover.position(), is(Coordinate.create(x.decrease().decrease().decrease().decrease().increase().increase(), y.increase().increase().increase().increase().decrease().decrease())));
         assertThat(rover.facing(), is(Direction.NORTH));
     }
+
+    @Test public void
+    display_position_in_format_X_Y_Direction() {
+        assertThat(rover.displayPosition(), equalTo("3 4 N"));
+    }
+
+
 }

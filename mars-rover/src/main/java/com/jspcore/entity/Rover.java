@@ -3,6 +3,7 @@ package com.jspcore.entity;
 import com.jspcore.values.Command;
 import com.jspcore.values.Coordinate;
 import com.jspcore.values.Direction;
+import org.apache.commons.lang.StringUtils;
 
 public class Rover {
     private Coordinate startPoint;
@@ -54,4 +55,13 @@ public class Rover {
     public void moveBackward() {
         position = direction.invested().move(position);
     }
+
+    public String displayPosition() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(position.display());
+        builder.append(" ");
+        builder.append(direction.value);
+        return builder.toString();
+    }
+
 }

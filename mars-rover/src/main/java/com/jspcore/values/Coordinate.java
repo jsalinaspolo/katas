@@ -28,4 +28,12 @@ public abstract class Coordinate {
     public Coordinate moveRight() {
         return Coordinate.create(x().increase(), y());
     }
+
+    public String display() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(x().display());
+        builder.append(" ");
+        builder.append(y().display());
+        return builder.toString();
+    }
 }

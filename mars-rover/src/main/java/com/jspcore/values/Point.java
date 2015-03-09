@@ -17,4 +17,6 @@ public abstract class Point {
     public Point decrease() {
         return Point.create(location() - 1);
     }
+
+    public String display() { return String.valueOf(location()); }
 }
