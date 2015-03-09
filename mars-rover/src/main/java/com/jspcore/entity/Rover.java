@@ -5,8 +5,6 @@ import com.jspcore.values.Coordinate;
 import com.jspcore.values.Direction;
 
 public class Rover {
-    private final int SQUARES_SPEED = 1;
-
     private Coordinate startPoint;
     private Coordinate position;
     private Direction direction;
