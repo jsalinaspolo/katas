@@ -1,7 +1,6 @@
 package com.jspcore.values;
 
-public enum Direction implements Rotation {
-
+public enum Direction implements Rotation, Move {
     NORTH("N") {
         @Override
         public Direction rotateWith(Command command) {
@@ -9,13 +8,10 @@ public enum Direction implements Rotation {
             if (Command.RIGHT == command) return EAST;
             return this;
         }
-    },
-    SOUTH("S") {
+
         @Override
-        public Direction rotateWith(Command command) {
-            if (Command.LEFT == command) return EAST;
-            if (Command.RIGHT == command) return WEST;
-            return this;
+        public Coordinate move(Coordinate coordinate) {
+            return coordinate.moveForward();
         }
     },
     EAST("E") {
@@ -25,6 +21,24 @@ public enum Direction implements Rotation {
             if (Command.RIGHT == command) return SOUTH;
             return this;
         }
+
+        @Override
+        public Coordinate move(Coordinate coordinate) {
+            return coordinate.moveRight();
+        }
+    },
+    SOUTH("S") {
+        @Override
+        public Direction rotateWith(Command command) {
+            if (Command.LEFT == command) return EAST;
+            if (Command.RIGHT == command) return WEST;
+            return this;
+        }
+
+        @Override
+        public Coordinate move(Coordinate coordinate) {
+            return coordinate.moveBackward();
+        }
     },
     WEST("W") {
         @Override
@@ -33,6 +47,11 @@ public enum Direction implements Rotation {
             if (Command.RIGHT == command) return NORTH;
             return this;
         }
+
+        @Override
+        public Coordinate move(Coordinate coordinate) {
+            return coordinate.moveLeft();
+        }
     };
 
     public String value;
@@ -40,8 +59,16 @@ public enum Direction implements Rotation {
     Direction(String value) {
         this.value = value;
     }
+
+    public Direction invert() {
+        return Direction.values()[(ordinal() + Direction.values().length / 2) % Direction.values().length];
+    }
 }
 
 interface Rotation {
     Direction rotateWith(Command command);
+}
+
+interface Move {
+    Coordinate move(Coordinate coordinate);
 }

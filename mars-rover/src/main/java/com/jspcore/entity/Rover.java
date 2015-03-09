@@ -35,30 +35,20 @@ public class Rover {
     }
 
     public void command(char command) {
-        if(Command.LEFT.command() == command) rotate(Command.LEFT);
-        if(Command.RIGHT.command() == command) rotate(Command.RIGHT);
-        else move();
-    }
-
-    public void move() {
-        switch (direction) {
-            case NORTH:
-                moveTo(position().x().location(), position().y().location() + speed());
-                break;
-            case SOUTH:
-                break;
-            case EAST:
-                break;
-            case WEST:
-                break;
+        if (Command.LEFT.command() == command) rotate(Command.LEFT);
+        else if (Command.RIGHT.command() == command) rotate(Command.RIGHT);
+        else if (Command.FORWARD.command() == command) moveForward();
+        else if (Command.BACKWARD.command() == command) moveBackward();
+        else {
+            throw new IllegalArgumentException("wrong command");
         }
     }
 
-    private void moveTo(int x, int y) {
-        position = Coordinate.create(Point.create(x), Point.create(y));
+    public void moveForward() {
+        position = direction.move(position);
     }
 
-    private int speed() {
-        return SQUARES_SPEED;
+    public void moveBackward() {
+        position = direction.invert().move(position);
     }
 }

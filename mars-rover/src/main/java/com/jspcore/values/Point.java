@@ -9,4 +9,12 @@ public abstract class Point {
     }
 
     public abstract int location();
+
+    public Point increase() {
+        return Point.create(location() + 1);
+    }
+
+    public Point decrease() {
+        return Point.create(location() - 1);
+    }
 }
