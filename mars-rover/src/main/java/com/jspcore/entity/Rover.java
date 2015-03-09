@@ -31,6 +31,12 @@ public class Rover {
         direction = direction.rotateWith(command);
     }
 
+    public void commands(String commands) {
+        commands.chars()
+                .mapToObj(i -> (char) i)
+                .forEach(command -> command(command));
+    }
+
     public void command(char command) {
         if (Command.LEFT.command() == command) rotate(Command.LEFT);
         else if (Command.RIGHT.command() == command) rotate(Command.RIGHT);

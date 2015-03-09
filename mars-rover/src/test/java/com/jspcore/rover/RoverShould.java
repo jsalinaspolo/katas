@@ -62,4 +62,23 @@ public class RoverShould {
         rover.command(Command.BACKWARD.command());
         assertThat(rover.position(), is(Coordinate.create(x, y.decrease())));
     }
+
+    @Test(expected = IllegalArgumentException.class) public void
+    throws_expcetion_when_wrong_command() {
+        rover.command('c');
+    }
+
+    @Test public void
+    move_up_twice_and_rotate_when_commands_FFL() {
+        rover.commands("FFL");
+        assertThat(rover.position(), is(Coordinate.create(x, y.increase().increase())));
+        assertThat(rover.facing(), is(Direction.WEST));
+    }
+
+    @Test public void
+    move_and_rotate_according_commands_FFLFFLBBRFFL() {
+        rover.commands("FFLFFLBBRFFLFFLFFL");
+        assertThat(rover.position(), is(Coordinate.create(x.decrease().decrease().decrease().decrease().increase().increase(), y.increase().increase().increase().increase().decrease().decrease())));
+        assertThat(rover.facing(), is(Direction.NORTH));
+    }
 }

@@ -13,7 +13,6 @@ public abstract class Coordinate {
 
     public abstract Point y();
 
-
     public Coordinate moveForward() {
         return Coordinate.create(x(), y().increase());
     }
