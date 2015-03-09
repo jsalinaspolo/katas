@@ -9,11 +9,11 @@ public class DirectionShould {
 
     @Test public void
     north_direction_from_value() {
-        assertThat(Direction.valueOf("N"), is(Direction.N));
+        assertThat(Direction.valueOf("NORTH"), is(Direction.NORTH));
     }
 
     @Test(expected = IllegalArgumentException.class) public void
     throws_exception_when_invalid_direction() {
-        assertThat(Direction.valueOf("M"), is(Direction.N));
+        assertThat(Direction.valueOf("M"), is(Direction.NORTH));
     }
 }

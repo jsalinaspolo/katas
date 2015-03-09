@@ -1,14 +1,12 @@
 package com.jspcore.values;
 
-public final class Point {
+import com.google.auto.value.AutoValue;
 
-    private final int location;
-
-    public Point(int location) {
-        this.location = location;
+@AutoValue
+public abstract class Point {
+    public static Point create(int location) {
+        return new AutoValue_Point(location);
     }
 
-    public int location() {
-        return this.location;
-    }
+    public abstract int location();
 }

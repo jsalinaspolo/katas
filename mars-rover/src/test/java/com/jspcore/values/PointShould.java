@@ -9,6 +9,6 @@ public class PointShould {
 
     @Test public void
     location_when_init_point() {
-        assertThat(new Point(2).location(), is(2));
+        assertThat(Point.create(2).location(), is(2));
     }
 }

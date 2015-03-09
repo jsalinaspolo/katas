@@ -2,10 +2,10 @@ package com.jspcore.values;
 
 public enum Direction {
 
-    N("NORTH"),
-    S("SOUTH"),
-    E("EAST"),
-    W("WEST");
+    NORTH("N"),
+    SOUTH("S"),
+    EAST("E"),
+    WEST("W");
 
     public String value;
 

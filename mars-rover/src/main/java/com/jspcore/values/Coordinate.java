@@ -1,15 +1,16 @@
 package com.jspcore.values;
 
-public final class Coordinate {
+import com.google.auto.value.AutoValue;
 
-    private final Point x;
-    private final Point y;
+@AutoValue
+public abstract class Coordinate {
 
-    public Coordinate(Point x, Point y) {
-        this.x = x;
-        this.y = y;
+    public static Coordinate create(Point x, Point y) {
+        return new AutoValue_Coordinate(x.location(),y.location());
     }
 
-    public int x() { return this.x.location(); }
-    public int y() { return this.y.location(); }
+    public abstract int x();
+    public abstract int y();
+
+
 }
