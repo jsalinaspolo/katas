@@ -30,14 +30,20 @@ public class Rover {
         return this.position;
     }
 
-    public void command(Command command) {
-        move();
+    private void rotate(Command command) {
+        direction = direction.rotateWith(command);
+    }
+
+    public void command(char command) {
+        if(Command.LEFT.command() == command) rotate(Command.LEFT);
+        if(Command.RIGHT.command() == command) rotate(Command.RIGHT);
+        else move();
     }
 
     public void move() {
         switch (direction) {
             case NORTH:
-                moveTo(position().x(), position().y() + speed());
+                moveTo(position().x().location(), position().y().location() + speed());
                 break;
             case SOUTH:
                 break;

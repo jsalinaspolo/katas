@@ -12,6 +12,8 @@ public enum Command {
     Command(String value) {
         this.value = value;
     }
+
+    public final char command() { return this.value.charAt(0); }
 }
 
 

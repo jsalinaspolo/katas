@@ -6,11 +6,10 @@ import com.google.auto.value.AutoValue;
 public abstract class Coordinate {
 
     public static Coordinate create(Point x, Point y) {
-        return new AutoValue_Coordinate(x.location(),y.location());
+        return new AutoValue_Coordinate(x,y);
     }
 
-    public abstract int x();
-    public abstract int y();
-
+    public abstract Point x();
+    public abstract Point y();
 
 }
