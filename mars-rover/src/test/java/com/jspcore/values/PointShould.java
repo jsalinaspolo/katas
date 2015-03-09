@@ -17,4 +17,14 @@ public class PointShould {
     equality() {
         assertThat(Point.create(2), equalTo(Point.create(2)));
     }
+
+    @Test public void
+    increase() {
+        assertThat(Point.create(3).increase(), equalTo(Point.create(4)));
+    }
+
+    @Test public void
+    decrease() {
+        assertThat(Point.create(3).decrease(), equalTo(Point.create(2)));
+    }
 }

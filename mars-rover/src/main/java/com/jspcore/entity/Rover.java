@@ -3,7 +3,6 @@ package com.jspcore.entity;
 import com.jspcore.values.Command;
 import com.jspcore.values.Coordinate;
 import com.jspcore.values.Direction;
-import com.jspcore.values.Point;
 
 public class Rover {
     private final int SQUARES_SPEED = 1;
@@ -49,6 +48,6 @@ public class Rover {
     }
 
     public void moveBackward() {
-        position = direction.invert().move(position);
+        position = direction.invested().move(position);
     }
 }

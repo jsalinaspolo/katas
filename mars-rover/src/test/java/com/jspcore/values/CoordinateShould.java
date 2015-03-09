@@ -41,6 +41,16 @@ public class CoordinateShould {
 
     @Test public void
     decrease_y_when_move_backward() {
-        assertThat(coordinate.moveForward(), equalTo(Coordinate.create(x, y.decrease())));
+        assertThat(coordinate.moveBackward(), equalTo(Coordinate.create(x, y.decrease())));
+    }
+
+    @Test public void
+    increase_x_when_move_right() {
+        assertThat(coordinate.moveRight(), equalTo(Coordinate.create(x.increase(), y)));
+    }
+
+    @Test public void
+    decrease_x_when_move_left() {
+        assertThat(coordinate.moveLeft(), equalTo(Coordinate.create(x.decrease(), y)));
     }
 }

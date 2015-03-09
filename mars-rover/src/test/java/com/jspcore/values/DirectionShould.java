@@ -18,23 +18,64 @@ public class DirectionShould {
     }
 
     @Test public void
-    invert_north_to_south() {
-        assertThat(Direction.NORTH.invert(), is(Direction.SOUTH));
+    be_south_when_invert_direction_of_north() {
+        assertThat(Direction.NORTH.invested(), is(Direction.SOUTH));
     }
 
     @Test public void
-    invert_south_to_north() {
-        assertThat(Direction.SOUTH.invert(), is(Direction.NORTH));
+    be_north_when_invert_direction_of_south() {
+        assertThat(Direction.SOUTH.invested(), is(Direction.NORTH));
     }
 
     @Test public void
-    invert_east_to_west() {
-        assertThat(Direction.EAST.invert(), is(Direction.WEST));
+    be_west_when_invert_direction_of_east() {
+        assertThat(Direction.EAST.invested(), is(Direction.WEST));
     }
 
     @Test public void
-    invert_westto_east() {
-        assertThat(Direction.WEST.invert(), is(Direction.EAST));
+    be_east_when_invert_direction_of_west() {
+        assertThat(Direction.WEST.invested(), is(Direction.EAST));
     }
+
+    @Test public void
+    be_west_when_rotate_left_of_north() {
+        assertThat(Direction.NORTH.rotateWith(Command.LEFT), is(Direction.WEST));
+    }
+
+    @Test public void
+    be_east_when_rotate_right_of_north() {
+        assertThat(Direction.NORTH.rotateWith(Command.RIGHT), is(Direction.EAST));
+    }
+
+    @Test public void
+    be_north_when_rotate_left_of_east() {
+        assertThat(Direction.EAST.rotateWith(Command.LEFT), is(Direction.NORTH));
+    }
+
+    @Test public void
+    be_south_when_rotate_right_of_east() {
+        assertThat(Direction.EAST.rotateWith(Command.RIGHT), is(Direction.SOUTH));
+    }
+
+    @Test public void
+    be_east_when_rotate_left_of_south() {
+        assertThat(Direction.SOUTH.rotateWith(Command.LEFT), is(Direction.EAST));
+    }
+
+    @Test public void
+    be_west_when_rotate_right_of_south() {
+        assertThat(Direction.SOUTH.rotateWith(Command.RIGHT), is(Direction.WEST));
+    }
+
+    @Test public void
+    be_north_when_rotate_left_of_west() {
+        assertThat(Direction.WEST.rotateWith(Command.LEFT), is(Direction.SOUTH));
+    }
+
+    @Test public void
+    be_south_when_rotate_right_of_west() {
+        assertThat(Direction.WEST.rotateWith(Command.RIGHT), is(Direction.NORTH));
+    }
+
 
 }

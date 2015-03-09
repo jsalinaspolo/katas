@@ -60,7 +60,7 @@ public enum Direction implements Rotation, Move {
         this.value = value;
     }
 
-    public Direction invert() {
+    public Direction invested() {
         return Direction.values()[(ordinal() + Direction.values().length / 2) % Direction.values().length];
     }
 }
