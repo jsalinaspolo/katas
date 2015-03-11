@@ -65,7 +65,7 @@ public class Rover {
 
     private boolean move(Direction direction) {
         terrain = Terrain.create(direction.move(terrain), terrain.limit(), terrain.obstacles());
-        if (terrain.isCollided(terrain.coordinate())) collided = true;
+        if (terrain.isCollided()) collided = true;
 
         return collided;
     }

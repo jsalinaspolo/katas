@@ -15,8 +15,8 @@ public abstract class Terrain {
 
     public abstract Obstacles obstacles();
 
-    public boolean isCollided(Coordinate position) {
-        return obstacles().isCollision(position);
+    public boolean isCollided() {
+        return obstacles().isCollision(coordinate());
     }
 
     public Coordinate moveForward() {
