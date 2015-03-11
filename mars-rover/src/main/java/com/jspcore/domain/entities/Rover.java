@@ -14,7 +14,7 @@ public class Rover {
         this.startPoint = coordinate;
         this.direction = direction;
         this.world = world;
-        updatePosition(coordinate);
+        addRover(coordinate);
     }
 
     public Direction facing() {
@@ -92,6 +92,10 @@ public class Rover {
                 .append(" ")
                 .append(direction.value())
                 .toString();
+    }
+
+    private void addRover(Coordinate position) {
+        this.world.addRover(position);
     }
 
     private void updatePosition(Coordinate position) {
