@@ -1,15 +1,13 @@
 package com.jspcore.domain.entities;
 
-import com.jspcore.domain.values.*;
-import org.junit.Assert;
+import com.jspcore.domain.values.Coordinate;
+import com.jspcore.domain.values.Obstacles;
+import com.jspcore.domain.values.Point;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.hamcrest.core.IsEqual.equalTo;
 
 public class WorldShould {
 
@@ -50,7 +48,7 @@ public class WorldShould {
 
     @Test(expected = IllegalStateException.class) public void
     throws_exception_when_update_rover_position_and_has_Not_rover() {
-        world.updateRover(Coordinate.create(x.increase(),y.increase()));
+        world.updateRover(Coordinate.create(x.increase(), y.increase()));
     }
 
 }
