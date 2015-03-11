@@ -39,6 +39,7 @@
                 </executions>
                 <configuration>
                     <excludes>
+                        <exclude>**/AutoValue*</exclude>
                     </excludes>
                 </configuration>
             </plugin>
