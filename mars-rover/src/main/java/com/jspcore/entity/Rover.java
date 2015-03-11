@@ -3,17 +3,17 @@ package com.jspcore.entity;
 import com.jspcore.values.Command;
 import com.jspcore.values.Coordinate;
 import com.jspcore.values.Direction;
-import org.apache.commons.lang.StringUtils;
+import com.jspcore.values.Terrain;
 
 public class Rover {
     private Coordinate startPoint;
-    private Coordinate position;
+    private Terrain terrain;
     private Direction direction;
 
-    public Rover(Coordinate coordinate, Direction direction) {
-        this.startPoint = coordinate;
+    public Rover(Terrain terrain, Direction direction) {
+        this.startPoint = terrain.coordinate();
         this.direction = direction;
-        this.position = coordinate;
+        this.terrain = terrain;
     }
 
     public Direction facing() {
@@ -25,7 +25,7 @@ public class Rover {
     }
 
     public Coordinate position() {
-        return this.position;
+        return this.terrain.coordinate();
     }
 
     private void rotate(Command command) {
@@ -49,19 +49,18 @@ public class Rover {
     }
 
     public void moveForward() {
-        position = direction.move(position);
+        terrain = Terrain.create(direction.move(terrain), terrain.limit());
     }
 
     public void moveBackward() {
-        position = direction.invested().move(position);
+        terrain =  Terrain.create(direction.inverted().move(terrain), terrain.limit());
     }
 
     public String displayPosition() {
         StringBuilder builder = new StringBuilder();
-        builder.append(position.display());
+        builder.append(terrain.display());
         builder.append(" ");
         builder.append(direction.value);
         return builder.toString();
     }
-
 }

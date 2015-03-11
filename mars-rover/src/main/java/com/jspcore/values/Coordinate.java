@@ -13,22 +13,6 @@ public abstract class Coordinate {
 
     public abstract Point y();
 
-    public Coordinate moveForward() {
-        return Coordinate.create(x(), y().increase());
-    }
-
-    public Coordinate moveBackward() {
-        return Coordinate.create(x(), y().decrease());
-    }
-
-    public Coordinate moveLeft() {
-        return Coordinate.create(x().decrease(), y());
-    }
-
-    public Coordinate moveRight() {
-        return Coordinate.create(x().increase(), y());
-    }
-
     public String display() {
         StringBuilder builder = new StringBuilder();
         builder.append(x().display());

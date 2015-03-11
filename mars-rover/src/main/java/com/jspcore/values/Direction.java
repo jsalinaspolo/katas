@@ -1,6 +1,6 @@
 package com.jspcore.values;
 
-public enum Direction implements Rotation, Move {
+public enum Direction implements Rotation, Movement {
     NORTH("N") {
         @Override
         public Direction rotateWith(Command command) {
@@ -10,8 +10,8 @@ public enum Direction implements Rotation, Move {
         }
 
         @Override
-        public Coordinate move(Coordinate coordinate) {
-            return coordinate.moveForward();
+        public Coordinate move(Terrain terrain) {
+            return terrain.moveForward();
         }
     },
     EAST("E") {
@@ -23,8 +23,8 @@ public enum Direction implements Rotation, Move {
         }
 
         @Override
-        public Coordinate move(Coordinate coordinate) {
-            return coordinate.moveRight();
+        public Coordinate move(Terrain terrain) {
+            return terrain.moveRight();
         }
     },
     SOUTH("S") {
@@ -36,8 +36,8 @@ public enum Direction implements Rotation, Move {
         }
 
         @Override
-        public Coordinate move(Coordinate coordinate) {
-            return coordinate.moveBackward();
+        public Coordinate move(Terrain terrain) {
+            return terrain.moveBackward();
         }
     },
     WEST("W") {
@@ -49,8 +49,8 @@ public enum Direction implements Rotation, Move {
         }
 
         @Override
-        public Coordinate move(Coordinate coordinate) {
-            return coordinate.moveLeft();
+        public Coordinate move(Terrain terrain) {
+            return terrain.moveLeft();
         }
     };
 
@@ -60,7 +60,7 @@ public enum Direction implements Rotation, Move {
         this.value = value;
     }
 
-    public Direction invested() {
+    public Direction inverted() {
         return Direction.values()[(ordinal() + Direction.values().length / 2) % Direction.values().length];
     }
 }
@@ -69,6 +69,6 @@ interface Rotation {
     Direction rotateWith(Command command);
 }
 
-interface Move {
-    Coordinate move(Coordinate coordinate);
+interface Movement {
+    Coordinate move(Terrain terrain);
 }

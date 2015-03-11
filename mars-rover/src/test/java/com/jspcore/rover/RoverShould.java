@@ -1,10 +1,7 @@
 package com.jspcore.rover;
 
 import com.jspcore.entity.Rover;
-import com.jspcore.values.Command;
-import com.jspcore.values.Coordinate;
-import com.jspcore.values.Direction;
-import com.jspcore.values.Point;
+import com.jspcore.values.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,12 +14,14 @@ public class RoverShould {
     private Rover rover;
     final Point x = Point.create(3);
     final Point y = Point.create(4);
-
+    final Point xLimit = Point.create(9);
+    final Point yLimit = Point.create(9);
 
     @Before public void
     setUp() {
         final Coordinate startingPoint = Coordinate.create(x, y);
-        rover = new Rover(startingPoint, Direction.NORTH);
+        final Coordinate limits = Coordinate.create(xLimit, yLimit);
+        rover = new Rover(Terrain.create(startingPoint, limits), Direction.NORTH);
     }
 
     @Test public void

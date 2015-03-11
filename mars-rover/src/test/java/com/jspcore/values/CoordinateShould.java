@@ -33,24 +33,4 @@ public class CoordinateShould {
     equality() {
         assertThat(Coordinate.create(x,y), equalTo(Coordinate.create(x,y)));
     }
-
-    @Test public void
-    increase_y_when_move_forward() {
-        assertThat(coordinate.moveForward(), equalTo(Coordinate.create(x, y.increase())));
-    }
-
-    @Test public void
-    decrease_y_when_move_backward() {
-        assertThat(coordinate.moveBackward(), equalTo(Coordinate.create(x, y.decrease())));
-    }
-
-    @Test public void
-    increase_x_when_move_right() {
-        assertThat(coordinate.moveRight(), equalTo(Coordinate.create(x.increase(), y)));
-    }
-
-    @Test public void
-    decrease_x_when_move_left() {
-        assertThat(coordinate.moveLeft(), equalTo(Coordinate.create(x.decrease(), y)));
-    }
 }

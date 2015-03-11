@@ -19,22 +19,22 @@ public class DirectionShould {
 
     @Test public void
     be_south_when_invert_direction_of_north() {
-        assertThat(Direction.NORTH.invested(), is(Direction.SOUTH));
+        assertThat(Direction.NORTH.inverted(), is(Direction.SOUTH));
     }
 
     @Test public void
     be_north_when_invert_direction_of_south() {
-        assertThat(Direction.SOUTH.invested(), is(Direction.NORTH));
+        assertThat(Direction.SOUTH.inverted(), is(Direction.NORTH));
     }
 
     @Test public void
     be_west_when_invert_direction_of_east() {
-        assertThat(Direction.EAST.invested(), is(Direction.WEST));
+        assertThat(Direction.EAST.inverted(), is(Direction.WEST));
     }
 
     @Test public void
     be_east_when_invert_direction_of_west() {
-        assertThat(Direction.WEST.invested(), is(Direction.EAST));
+        assertThat(Direction.WEST.inverted(), is(Direction.EAST));
     }
 
     @Test public void
