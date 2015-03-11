@@ -1,9 +1,9 @@
-package com.jspcore.entity;
+package com.jspcore.domain.entities;
 
-import com.jspcore.values.Command;
-import com.jspcore.values.Coordinate;
-import com.jspcore.values.Direction;
-import com.jspcore.values.Terrain;
+import com.jspcore.domain.values.Command;
+import com.jspcore.domain.values.Coordinate;
+import com.jspcore.domain.values.Direction;
+import com.jspcore.domain.values.Terrain;
 
 public class Rover {
     private Coordinate startPoint;

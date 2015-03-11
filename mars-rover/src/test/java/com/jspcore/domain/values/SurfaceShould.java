@@ -1,4 +1,4 @@
-package com.jspcore.values;
+package com.jspcore.domain.values;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -46,4 +46,30 @@ public class SurfaceShould {
     decrease_x_when_move_left() {
         assertThat(terrain.moveLeft(), equalTo(Coordinate.create(x.decrease(), y)));
     }
+
+    @Test public void
+    move_forward_from_an_edge_when_out_of_the_terrain() {
+        Terrain terrain = Terrain.create(Coordinate.create(xLimit, yLimit), Coordinate.create(xLimit, yLimit));
+        assertThat(terrain.moveForward(), equalTo(Coordinate.create(xLimit, Point.create(0))));
+    }
+
+    @Test public void
+    move_backward_from_an_edge_when_out_of_the_terrain() {
+        Terrain terrain = Terrain.create(Coordinate.create(xLimit, Point.create(0)), Coordinate.create(xLimit, yLimit));
+        assertThat(terrain.moveBackward(), equalTo(Coordinate.create(xLimit, yLimit)));
+    }
+
+    @Test public void
+    move_right_from_an_edge_when_out_of_the_terrain() {
+        Terrain terrain = Terrain.create(Coordinate.create(xLimit, yLimit), Coordinate.create(xLimit, yLimit));
+        assertThat(terrain.moveRight(), equalTo(Coordinate.create(Point.create(0), yLimit)));
+    }
+
+    @Test public void
+    move_left_from_an_edge_when_out_of_the_terrain() {
+        Terrain terrain = Terrain.create(Coordinate.create(Point.create(0), yLimit), Coordinate.create(xLimit, yLimit));
+        assertThat(terrain.moveLeft(), equalTo(Coordinate.create(xLimit, yLimit)));
+    }
+
+
 }

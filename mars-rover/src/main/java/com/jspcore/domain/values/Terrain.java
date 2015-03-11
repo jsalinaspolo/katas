@@ -1,4 +1,4 @@
-package com.jspcore.values;
+package com.jspcore.domain.values;
 
 import com.google.auto.value.AutoValue;
 
@@ -14,19 +14,19 @@ public abstract class Terrain {
     public abstract Coordinate limit();
 
     public Coordinate moveForward() {
-        return Coordinate.create(coordinate().x(), coordinate().y().increase());
+        return Coordinate.create(coordinate().x(), coordinate().y().increase(limit().y()));
     }
 
     public Coordinate moveBackward() {
-        return Coordinate.create(coordinate().x(), coordinate().y().decrease());
+        return Coordinate.create(coordinate().x(), coordinate().y().decrease(limit().y()));
     }
 
     public Coordinate moveLeft() {
-        return Coordinate.create(coordinate().x().decrease(), coordinate().y());
+        return Coordinate.create(coordinate().x().decrease(limit().x()), coordinate().y());
     }
 
     public Coordinate moveRight() {
-        return Coordinate.create(coordinate().x().increase(), coordinate().y());
+        return Coordinate.create(coordinate().x().increase(limit().x()), coordinate().y());
     }
 
     public String display() {

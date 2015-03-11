@@ -1,7 +1,6 @@
-package com.jspcore.rover;
+package com.jspcore.domain.entities;
 
-import com.jspcore.entity.Rover;
-import com.jspcore.values.*;
+import com.jspcore.domain.values.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -86,5 +85,9 @@ public class RoverShould {
         assertThat(rover.displayPosition(), equalTo("3 4 N"));
     }
 
-
+    @Test public void
+    move_from_an_edge_of_the_world_to_another() {
+        rover.commands("FFFFFF");
+        assertThat(rover.displayPosition(), is("3 0 N"));
+    }
 }

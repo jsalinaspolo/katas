@@ -1,4 +1,4 @@
-package com.jspcore.values;
+package com.jspcore.domain.values;
 
 public enum Command {
 

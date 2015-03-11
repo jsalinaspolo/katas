@@ -1,4 +1,4 @@
-package com.jspcore.values;
+package com.jspcore.domain.values;
 
 import com.google.auto.value.AutoValue;
 
@@ -14,8 +14,17 @@ public abstract class Point {
         return Point.create(location() + 1);
     }
 
+    public Point increase(Point limit) {
+        return Point.create(increase().location() % limit.increase().location());
+    }
+
     public Point decrease() {
         return Point.create(location() - 1);
+    }
+
+    public Point decrease(Point limit) {
+        if (location() <= 0) return limit;
+        return decrease();
     }
 
     public String display() { return String.valueOf(location()); }
