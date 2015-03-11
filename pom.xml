@@ -46,6 +46,9 @@
                 <groupId>org.eluder.coveralls</groupId>
                 <artifactId>coveralls-maven-plugin</artifactId>
                 <version>3.0.1</version>
+                <configuration>
+                    <repoToken>${env.COVERALLS_KATAS_TOKEN}</repoToken>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
