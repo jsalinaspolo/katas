@@ -4,3 +4,4 @@
 
 * [Roman Numeral] (https://github.com/mustaine/katas/tree/master/roman-numeral)
 * [FizzyBuzz] (https://github.com/mustaine/katas/tree/master/fizz-buzz)
+* [Mars Rover] (https://github.com/mustaine/katas/tree/master/mars-rover)
