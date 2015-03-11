@@ -7,7 +7,7 @@ import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 
-public class SurfaceShould {
+public class TerrainShould {
 
     final Point x = Point.create(2);
     final Point y = Point.create(3);
