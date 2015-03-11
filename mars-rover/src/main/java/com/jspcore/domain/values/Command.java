@@ -7,7 +7,7 @@ public enum Command {
     FORWARD("F"),
     BACKWARD("B");
 
-    public String value;
+    private final String value;
 
     Command(String value) {
         this.value = value;

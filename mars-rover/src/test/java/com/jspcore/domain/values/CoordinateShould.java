@@ -9,10 +9,10 @@ import static org.junit.Assert.assertThat;
 
 public class CoordinateShould {
 
-    final Point x = Point.create(2);
-    final Point y = Point.create(3);
+    private final Point x = Point.create(2);
+    private final Point y = Point.create(3);
     
-    Coordinate coordinate;
+    private Coordinate coordinate;
     
     @Before public void
     setUp() {

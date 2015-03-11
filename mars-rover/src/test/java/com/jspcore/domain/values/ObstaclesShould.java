@@ -11,10 +11,10 @@ import static org.junit.Assert.assertThat;
 
 public class ObstaclesShould {
 
-    final Point x = Point.create(2);
-    final Point y = Point.create(3);
-    
-    Obstacles obstacles;
+    private final Point x = Point.create(2);
+    private final Point y = Point.create(3);
+
+    private Obstacles obstacles;
     
     @Before public void
     setUp() {

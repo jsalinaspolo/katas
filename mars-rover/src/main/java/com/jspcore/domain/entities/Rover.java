@@ -1,19 +1,20 @@
 package com.jspcore.domain.entities;
 
-import com.jspcore.domain.values.*;
-
-import java.util.Collections;
+import com.jspcore.domain.values.Command;
+import com.jspcore.domain.values.Coordinate;
+import com.jspcore.domain.values.Direction;
 
 public class Rover {
-    private Coordinate startPoint;
-    private Terrain terrain;
+    private final Coordinate startPoint;
+    private final World world;
     private Direction direction;
     private boolean collided;
 
-    public Rover(Terrain terrain, Direction direction) {
-        this.startPoint = terrain.coordinate();
+    public Rover(World world, Coordinate coordinate, Direction direction) {
+        this.startPoint = coordinate;
         this.direction = direction;
-        this.terrain = terrain;
+        this.world = world;
+        updatePosition(coordinate);
     }
 
     public Direction facing() {
@@ -25,7 +26,7 @@ public class Rover {
     }
 
     public Coordinate position() {
-        return this.terrain.coordinate();
+        return this.world.roverPosition();
     }
 
     public boolean isCollided() {
@@ -39,7 +40,7 @@ public class Rover {
     public void commands(String commands) {
         commands.chars()
                 .mapToObj(i -> (char) i)
-                .filter(command -> command(command))
+                .filter(this::command)
                 .findFirst();
     }
 
@@ -64,17 +65,38 @@ public class Rover {
     }
 
     private boolean move(Direction direction) {
-        terrain = Terrain.create(direction.move(terrain), terrain.limit(), terrain.obstacles());
-        if (terrain.isCollided()) collided = true;
-
+        updatePosition(direction.move(this));
+        if (world.isCollided()) collided = true;
         return collided;
     }
 
+    public Coordinate moveUp() {
+        return Coordinate.create(position().x(), position().y().increase(world.limit().y()));
+    }
+
+    public Coordinate moveDown() {
+        return Coordinate.create(position().x(), position().y().decrease(world.limit().y()));
+    }
+
+    public Coordinate moveLeft() {
+        return Coordinate.create(position().x().decrease(world.limit().x()), position().y());
+    }
+
+    public Coordinate moveRight() {
+        return Coordinate.create(position().x().increase(world.limit().x()), position().y());
+    }
+
     public String displayPosition() {
-        StringBuilder builder = new StringBuilder();
-        builder.append(terrain.display());
-        builder.append(" ");
-        builder.append(direction.value);
-        return builder.toString();
+        return new StringBuilder()
+                .append(world.display())
+                .append(" ")
+                .append(direction.value())
+                .toString();
+    }
+
+    private void updatePosition(Coordinate position) {
+        this.world.updateRover(position);
     }
 }
+
+

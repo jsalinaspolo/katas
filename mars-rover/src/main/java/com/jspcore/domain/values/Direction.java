@@ -1,5 +1,7 @@
 package com.jspcore.domain.values;
 
+import com.jspcore.domain.entities.Rover;
+
 public enum Direction implements Rotation, Movement {
     NORTH("N") {
         @Override
@@ -10,8 +12,8 @@ public enum Direction implements Rotation, Movement {
         }
 
         @Override
-        public Coordinate move(Terrain terrain) {
-            return terrain.moveForward();
+        public Coordinate move(Rover rover) {
+            return rover.moveUp();
         }
     },
     EAST("E") {
@@ -23,8 +25,8 @@ public enum Direction implements Rotation, Movement {
         }
 
         @Override
-        public Coordinate move(Terrain terrain) {
-            return terrain.moveRight();
+        public Coordinate move(Rover rover) {
+            return rover.moveRight();
         }
     },
     SOUTH("S") {
@@ -36,8 +38,8 @@ public enum Direction implements Rotation, Movement {
         }
 
         @Override
-        public Coordinate move(Terrain terrain) {
-            return terrain.moveBackward();
+        public Coordinate move(Rover rover) {
+            return rover.moveDown();
         }
     },
     WEST("W") {
@@ -49,16 +51,18 @@ public enum Direction implements Rotation, Movement {
         }
 
         @Override
-        public Coordinate move(Terrain terrain) {
-            return terrain.moveLeft();
+        public Coordinate move(Rover rover) {
+            return rover.moveLeft();
         }
     };
 
-    public String value;
+    private final String value;
 
     Direction(String value) {
         this.value = value;
     }
+
+    public String value() { return this.value; }
 
     public Direction inverted() {
         return Direction.values()[(ordinal() + Direction.values().length / 2) % Direction.values().length];
@@ -70,5 +74,5 @@ interface Rotation {
 }
 
 interface Movement {
-    Coordinate move(Terrain terrain);
+    Coordinate move(Rover rover);
 }
