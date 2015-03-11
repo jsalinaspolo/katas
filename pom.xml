@@ -13,6 +13,7 @@
         <module>roman-numeral</module>
         <module>fizz-buzz</module>
         <module>mars-rover</module>
+        <module>tennis-game</module>
     </modules>
 
     <build>
