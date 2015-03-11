@@ -4,6 +4,9 @@ import com.jspcore.domain.values.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
@@ -13,14 +16,15 @@ public class RoverShould {
     private Rover rover;
     final Point x = Point.create(3);
     final Point y = Point.create(4);
-    final Point xLimit = Point.create(9);
-    final Point yLimit = Point.create(9);
 
     @Before public void
     setUp() {
-        final Coordinate startingPoint = Coordinate.create(x, y);
-        final Coordinate limits = Coordinate.create(xLimit, yLimit);
-        rover = new Rover(Terrain.create(startingPoint, limits), Direction.NORTH);
+
+        final Point xLimit = Point.create(9);
+        final Point yLimit = Point.create(9);
+        final Terrain terrain = Terrain.create(Coordinate.create(x, y), Coordinate.create(xLimit, yLimit), Obstacles.empty());
+
+        rover = new Rover(terrain, Direction.NORTH);
     }
 
     @Test public void
@@ -89,5 +93,19 @@ public class RoverShould {
     move_from_an_edge_of_the_world_to_another() {
         rover.commands("FFFFFF");
         assertThat(rover.displayPosition(), is("3 0 N"));
+    }
+
+    @Test public void
+    collided_with_an_obstacle_and_stop_when_collision() {
+        final Point xLimit = Point.create(9);
+        final Point yLimit = Point.create(9);
+        final Terrain terrain = Terrain.create(Coordinate.create(x, y), Coordinate.create(xLimit, yLimit),
+                Obstacles.create(Arrays.asList(
+                        Coordinate.create(x.decrease(), y.decrease()),
+                        Coordinate.create(x, y.increase()))));
+        Rover rover = new Rover(terrain, Direction.NORTH);
+        rover.commands("FFF");
+        assertThat(rover.displayPosition(), is("3 5 N"));
+        assertThat(rover.isCollided(), is(true));
     }
 }

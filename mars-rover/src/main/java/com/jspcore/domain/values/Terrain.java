@@ -5,13 +5,19 @@ import com.google.auto.value.AutoValue;
 @AutoValue
 public abstract class Terrain {
 
-    public static Terrain create(Coordinate coordinate, Coordinate limit) {
-        return new AutoValue_Terrain(coordinate, limit);
+    public static Terrain create(Coordinate coordinate, Coordinate limit, Obstacles obstacles) {
+        return new AutoValue_Terrain(coordinate, limit, obstacles);
     }
 
     public abstract Coordinate coordinate();
 
     public abstract Coordinate limit();
+
+    public abstract Obstacles obstacles();
+
+    public boolean isCollided(Coordinate position) {
+        return obstacles().isCollision(position);
+    }
 
     public Coordinate moveForward() {
         return Coordinate.create(coordinate().x(), coordinate().y().increase(limit().y()));
@@ -30,8 +36,6 @@ public abstract class Terrain {
     }
 
     public String display() {
-        StringBuilder builder = new StringBuilder();
-        builder.append(coordinate().display());
-        return builder.toString();
+        return coordinate().display();
     }
 }

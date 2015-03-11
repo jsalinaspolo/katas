@@ -19,7 +19,7 @@ public class TerrainShould {
     
     @Before public void
     setUp() {
-        terrain = Terrain.create(Coordinate.create(x, y), Coordinate.create(xLimit, yLimit));
+        terrain = Terrain.create(Coordinate.create(x, y), Coordinate.create(xLimit, yLimit), Obstacles.empty());
     }
 
     @Test public void
@@ -49,25 +49,25 @@ public class TerrainShould {
 
     @Test public void
     move_forward_from_an_edge_when_out_of_the_terrain() {
-        Terrain terrain = Terrain.create(Coordinate.create(xLimit, yLimit), Coordinate.create(xLimit, yLimit));
+        Terrain terrain = Terrain.create(Coordinate.create(xLimit, yLimit), Coordinate.create(xLimit, yLimit), Obstacles.empty());
         assertThat(terrain.moveForward(), equalTo(Coordinate.create(xLimit, Point.create(0))));
     }
 
     @Test public void
     move_backward_from_an_edge_when_out_of_the_terrain() {
-        Terrain terrain = Terrain.create(Coordinate.create(xLimit, Point.create(0)), Coordinate.create(xLimit, yLimit));
+        Terrain terrain = Terrain.create(Coordinate.create(xLimit, Point.create(0)), Coordinate.create(xLimit, yLimit), Obstacles.empty());
         assertThat(terrain.moveBackward(), equalTo(Coordinate.create(xLimit, yLimit)));
     }
 
     @Test public void
     move_right_from_an_edge_when_out_of_the_terrain() {
-        Terrain terrain = Terrain.create(Coordinate.create(xLimit, yLimit), Coordinate.create(xLimit, yLimit));
+        Terrain terrain = Terrain.create(Coordinate.create(xLimit, yLimit), Coordinate.create(xLimit, yLimit), Obstacles.empty());
         assertThat(terrain.moveRight(), equalTo(Coordinate.create(Point.create(0), yLimit)));
     }
 
     @Test public void
     move_left_from_an_edge_when_out_of_the_terrain() {
-        Terrain terrain = Terrain.create(Coordinate.create(Point.create(0), yLimit), Coordinate.create(xLimit, yLimit));
+        Terrain terrain = Terrain.create(Coordinate.create(Point.create(0), yLimit), Coordinate.create(xLimit, yLimit), Obstacles.empty());
         assertThat(terrain.moveLeft(), equalTo(Coordinate.create(xLimit, yLimit)));
     }
 

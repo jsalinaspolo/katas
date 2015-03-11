@@ -1,14 +1,14 @@
 package com.jspcore.domain.entities;
 
-import com.jspcore.domain.values.Command;
-import com.jspcore.domain.values.Coordinate;
-import com.jspcore.domain.values.Direction;
-import com.jspcore.domain.values.Terrain;
+import com.jspcore.domain.values.*;
+
+import java.util.Collections;
 
 public class Rover {
     private Coordinate startPoint;
     private Terrain terrain;
     private Direction direction;
+    private boolean collided;
 
     public Rover(Terrain terrain, Direction direction) {
         this.startPoint = terrain.coordinate();
@@ -28,6 +28,10 @@ public class Rover {
         return this.terrain.coordinate();
     }
 
+    public boolean isCollided() {
+        return this.collided;
+    }
+
     private void rotate(Command command) {
         direction = direction.rotateWith(command);
     }
@@ -35,25 +39,35 @@ public class Rover {
     public void commands(String commands) {
         commands.chars()
                 .mapToObj(i -> (char) i)
-                .forEach(command -> command(command));
+                .filter(command -> command(command))
+                .findFirst();
     }
 
-    public void command(char command) {
+    public boolean command(char command) {
         if (Command.LEFT.command() == command) rotate(Command.LEFT);
         else if (Command.RIGHT.command() == command) rotate(Command.RIGHT);
-        else if (Command.FORWARD.command() == command) moveForward();
-        else if (Command.BACKWARD.command() == command) moveBackward();
+        else if (Command.FORWARD.command() == command) return moveForward();
+        else if (Command.BACKWARD.command() == command) return moveBackward();
         else {
             throw new IllegalArgumentException("wrong command");
         }
+
+        return false;
     }
 
-    public void moveForward() {
-        terrain = Terrain.create(direction.move(terrain), terrain.limit());
+    public boolean moveForward() {
+        return move(direction);
     }
 
-    public void moveBackward() {
-        terrain =  Terrain.create(direction.inverted().move(terrain), terrain.limit());
+    public boolean moveBackward() {
+        return move(direction.inverted());
+    }
+
+    private boolean move(Direction direction) {
+        terrain = Terrain.create(direction.move(terrain), terrain.limit(), terrain.obstacles());
+        if (terrain.isCollided(terrain.coordinate())) collided = true;
+
+        return collided;
     }
 
     public String displayPosition() {
