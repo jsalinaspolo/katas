@@ -16,5 +16,15 @@ public class Game {
         return 2;
     }
 
+    public void winPoint(Player player) {
+        player.winAPoint();
+    }
 
+    public String score() {
+        return displayScore();
+    }
+
+    private String displayScore() {
+        return String.format("%s %s", player1.score(), player2.score());
+    }
 }

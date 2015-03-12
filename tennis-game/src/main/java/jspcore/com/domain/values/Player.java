@@ -20,4 +20,8 @@ public abstract class Player {
     public int points() {
         return points;
     }
+
+    public Points score() {
+        return Points.values()[points];
+    }
 }
