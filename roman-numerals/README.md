@@ -1,4 +1,4 @@
-# Roman Numeral kata
+# Roman Numerals kata
 
 #### Description
 The Romans wrote their numbers using letters; specifically the letters "I, V, X, L, C, D, and M." There were certain rules that the numerals followed which should be observed.

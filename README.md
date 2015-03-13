@@ -2,6 +2,6 @@
 [![Coverage Status](https://img.shields.io/coveralls/mustaine/katas.svg)](https://coveralls.io/r/mustaine/katas)
 # Katas
 
-* [Roman Numeral] (https://github.com/mustaine/katas/tree/master/roman-numeral)
+* [Roman Numeral] (https://github.com/mustaine/katas/tree/master/roman-numerals)
 * [FizzyBuzz] (https://github.com/mustaine/katas/tree/master/fizz-buzz)
 * [Mars Rover] (https://github.com/mustaine/katas/tree/master/mars-rover)
