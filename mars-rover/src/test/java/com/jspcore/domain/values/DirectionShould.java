@@ -77,5 +77,9 @@ public class DirectionShould {
         assertThat(Direction.WEST.rotateWith(Command.RIGHT), is(Direction.NORTH));
     }
 
+    @Test(expected = IllegalArgumentException.class) public void
+    throw_an_exception_when_rotate_with_invalid_command() {
+        Direction.NORTH.rotateWith(Command.FORWARD);
+    }
 
 }
