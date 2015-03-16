@@ -87,11 +87,9 @@ public class Rover {
     }
 
     public String displayPosition() {
-        return new StringBuilder()
-                .append(world.display())
-                .append(" ")
-                .append(direction.value())
-                .toString();
+        StringBuilder builder = new StringBuilder(String.format("%s %s", world.display(), direction.value()));
+        if(isCollided()) builder.append(String.format(" NOK"));
+        return builder.toString();
     }
 
     private void addRover(Coordinate position) {

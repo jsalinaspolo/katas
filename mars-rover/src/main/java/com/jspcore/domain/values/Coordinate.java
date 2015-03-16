@@ -14,11 +14,7 @@ public abstract class Coordinate {
     public abstract Point y();
 
     public String display() {
-        return new StringBuilder()
-                .append(x().display())
-                .append(" ")
-                .append(y().display())
-                .toString();
+        return String.format("%s %s", x().display(), y().display());
     }
 }
 

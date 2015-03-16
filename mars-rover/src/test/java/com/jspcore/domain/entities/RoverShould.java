@@ -104,7 +104,7 @@ public class RoverShould {
                         Coordinate.create(x, y.increase()))));
         Rover rover = new Rover(world, Coordinate.create(x, y), Direction.NORTH);
         rover.commands("FFF");
-        assertThat(rover.displayPosition(), is("3 5 N"));
+        assertThat(rover.displayPosition(), is("3 5 N NOK"));
         assertThat(rover.isCollided(), is(true));
     }
 
