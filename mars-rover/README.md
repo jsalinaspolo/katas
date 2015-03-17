@@ -1,6 +1,6 @@
 # Mars Rover kata
 
-For more details please visit [JSPcore](http://www.jspcore.com) the [article](http://www.jspcore.com/mars-rover-kata/)
+For more details please visit [JSPcore](http://www.jspcore.com) the article [Mars Rover kata](http://www.jspcore.com/mars-rover-kata/)
 
 
 Source: http://dallashackclub.com/rover

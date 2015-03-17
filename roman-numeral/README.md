@@ -1,6 +1,6 @@
 # Roman Numerals kata
 
-For more details please visit [JSPcore](http://www.jspcore.com) the [article](http://www.jspcore.com/roman-numeral-kata/)
+For more details please visit [JSPcore](http://www.jspcore.com) the article [Roman Numerals kata](http://www.jspcore.com/roman-numeral-kata/)
 
 #### Description
 The Romans wrote their numbers using letters; specifically the letters "I, V, X, L, C, D, and M." There were certain rules that the numerals followed which should be observed.
