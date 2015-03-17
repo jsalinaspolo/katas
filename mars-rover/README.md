@@ -1,5 +1,8 @@
 # Mars Rover kata
 
+For more details please visit [JSPcore](http://www.jspcore.com) the [article](http://www.jspcore.com/mars-rover-kata/)
+
+
 Source: http://dallashackclub.com/rover
 
 #### Develop an api that moves a rover around on a grid.
