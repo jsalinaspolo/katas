@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>katas</groupId>
-    <artifactId>com.jspcore</artifactId>
+    <groupId>com.jspcore</groupId>
+    <artifactId>katas</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
@@ -14,6 +14,7 @@
         <module>fizz-buzz</module>
         <module>mars-rover</module>
         <module>tennis-game</module>
+        <module>lsc-kata</module>
     </modules>
 
     <build>
