@@ -47,6 +47,6 @@ public class FloorProcessorShould {
 
     @Test public void
     find_first_time_basement_when_UP_DOWN_UP_DOWN_DOWN() {
-        assertThat(floorProcessor.firstBasement(")"), is(5));
+        assertThat(floorProcessor.firstBasement("()())"), is(5));
     }
 }
