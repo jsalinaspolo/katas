@@ -17,6 +17,7 @@
         <module>lsc-kata</module>
         <!--<module>bsc-kata</module>-->
         <module>shopping-cart-kata</module>
+        <module>advent-of-code</module>
     </modules>
 
     <build>
